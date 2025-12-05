@@ -206,9 +206,6 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     height: 2rem;
     border-radius: 60%;
   }
-  /*----------------accueil responsive-------------------------*/
-
-   /*----------------fin accueil responsive-------------------------*/
 /*---------------------------------------------------cv-------------------------------------*/
 #cv{
     width: 100%;
@@ -237,50 +234,40 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     font-weight: 900;
 }
 
-/*------*/
-/* Conteneur principal qui donne la profondeur (Perspective) */
+/*------ SLIDER 3D ------*/
 .slider-3d-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 21rem; /* Hauteur de la zone */
+    width: 21rem; 
     margin: 30px 0;
     overflow: hidden;
-    perspective: 900px; /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
-    border-radius: 22px solid var(--couleur-vide);
+    perspective: 900px;
 }
 
-/* L'axe qui va tourner */
 .slider-axis {
     position: relative;
-    width: 110px; /* Largeur d'une carte */
-    height: 195px; /* Hauteur d'une carte */
-    transform-style: preserve-3d; /* Indispensable pour la 3D */
-    animation: autoRun 20s linear infinite; /* Ça tourne tout seul */
+    width: 110px; 
+    height: 195px; 
+    transform-style: preserve-3d;
+    animation: autoRun 20s linear infinite; 
 }
 
-/* Pause l'animation quand on passe la souris dessus */
 .slider-axis:hover {
     animation-play-state: paused;
 }
 
 @keyframes autoRun {
-    from {
-        transform: perspective(1000px) rotateY(0deg);
-    }
-    to {
-        transform: perspective(1000px) rotateY(360deg);
-    }
+    from { transform: perspective(1000px) rotateY(0deg); }
+    to { transform: perspective(1000px) rotateY(360deg); }
 }
 
-/* Les cartes individuelles */
 .slider-item {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Effet verre (Glassmorphism) pour coller à ton site */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -290,26 +277,16 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     justify-content: center;
     align-items: center;
     
-    /* 
-       CALCUL MATHÉMATIQUE IMPORTANT :
-       On a 7 éléments. 360 degrés / 7 = ~51.43 degrés par élément.
-       On multiplie l'index (--i) par 51.43deg.
-       Le translateZ(250px) est le rayon du cercle. Augmente ce chiffre si les cartes se chevauchent trop.
-    */
     transform: rotateY(calc((var(--i) - 1) * (360 / 7 * 1deg))) translateZ(280px);
-    
-    /* Reflet réaliste en dessous (marche sur Chrome/Safari/Edge) */
     -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0,0,0,0.4));
-    
     transition: 0.5s;
     cursor: pointer;
 }
 
-/* Effet au survol d'une carte spécifique */
 .slider-item:hover {
     background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px var(--neon); /* Utilise ta variable néon existante */
-    transform: rotateY(calc((var(--i) - 1) * (360 / 7 * 1deg))) translateZ(300px) scale(1.1); /* La carte s'avance un peu */
+    box-shadow: 0 0 20px var(--neon); 
+    transform: rotateY(calc((var(--i) - 1) * (360 / 7 * 1deg))) translateZ(300px) scale(1.1);
 }
 
 .slider-item img {
@@ -318,28 +295,30 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     object-fit: contain;
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 }
-/*-------*/
-.cv_complet button{
+
+/*------- BOUTONS ------*/
+.cv_complet button, .btn-download {
     border-radius: 0 20px;  
-     font-family: "Kaushan Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-  padding: 0.1rem 1.3rem;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0.1rem 1.3rem;
     background-color: #fffeffc5;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--couleur-noire);
 }
-.cv_complet button:hover{
-      background-color: transparent;
+.cv_complet button:hover, .btn-download:hover {
+    background-color: transparent;
     box-shadow:10 5px rgb(255, 255, 255) #7812cc;
-      color: whitesmoke;
-      text-shadow:  0 0 0.5rem rgb(255, 255, 255),
-    0 0 0.7rem rgb(217, 213, 213),
-    0 0 0.9rem rgb(255, 252, 252),
-    0 0 1.1rem rgb(98, 7, 141),
-    0 0 1.3rem rgb(255, 252, 252),
-    0 0 1.5rem rgb(255, 247, 247),
-    0 0 1.7rem rgb(165, 59, 235);
+    color: whitesmoke;
+    text-shadow: 0 0 0.5rem rgb(255, 255, 255);
     transition: all 0.8s ease;
+    border: 1px solid white;
 }
+
 /*-------------------------------------------------*/
 .ligne_blanche{
     display: flex;
@@ -378,7 +357,7 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     calc(1px * 6) calc(1px * 6) 0 #000;
 }
 .liens_projets a img{
-    width: 5rem;
+    width: 10rem;
 }
 /*------------------------------------------------------------------------*/
 .ligne_blanche2{
@@ -539,4 +518,199 @@ footer.footer-water {
     filter: url(#water-filter);  /* effet ondulant */
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+/* ========================================= */
+/*       NOUVEAU STYLE POUR LE MODAL         */
+/* ========================================= */
+
+.modal {
+    position: fixed; 
+    z-index: 100000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    backdrop-filter: blur(5px);
+    
+    /* Animation fluide */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+}
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    color: var(--couleur-claire);
+    text-align: center;
+    position: relative;
+    
+    /* Animation du contenu */
+    transform: translateY(-50px) scale(0.9);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.modal.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.close-modal {
+    color: var(--couleur-claire);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-modal:hover { color: #ff4444; text-shadow: 0 0 10px #ff4444; }
+
+.pdf-container iframe {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content { width: 95%; margin-top: 20%; }
+    .pdf-container iframe { height: 300px; }
+}
+
+
+
+
+
+
+
+/* ============================================== */
+/*             RESPONSIVE DESIGN                  */
+/* ============================================== */
+
+/* --- TABLETTES (Entre 769px et 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .presentation {
+        width: 100%; /* Prend toute la largeur */
+        padding: 0 20px;
+        text-align: center;
+    }
+    .profil img {
+        width: 20rem; /* Image un peu plus petite */
+    }
+    /* On ajuste le slider 3D pour qu'il ne soit pas trop large */
+    .slider-3d-container {
+        transform: scale(0.9); 
+    }
+}
+
+/* --- MOBILES (En dessous de 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. HEADER & MENU */
+    header {
+        margin-bottom: 2rem;
+    }
+    
+    /* On cache le grand menu textuel */
+    header nav {
+        display: none; 
+    }
+    
+    /* On affiche le menu icônes sur le côté */
+    .nav_mobile {
+        display: flex; /* Il était en display: none avant */
+    }
+
+    /* 2. ACCUEIL (Passe en colonne) */
+    #Accueil {
+        flex-direction: column; /* L'un sous l'autre */
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .profil img {
+        width: 18rem;
+    }
+    
+    .presentation h1, .presentation h2 {
+        font-size: 1.5rem;
+    }
+    
+    .mon_nom {
+        font-size: 2.5rem; /* Nom plus petit sur mobile */
+    }
+
+    /* 3. SECTION CV (Passe en colonne) */
+    .contenu_cv {
+        flex-direction: column;
+        width: 90%; /* Plus large sur mobile */
+        border-radius: 20px; /* Bordure moins bizarre sur mobile */
+        gap: 30px;
+    }
+    
+
+    /* Le Slider 3D sur mobile */
+    .slider-3d-container {
+        width: 100%;
+        perspective: 600px; /* Moins de perspective pour éviter les bugs visuels */
+        transform: scale(0.8); /* On le réduit pour qu'il rentre */
+    }
+
+    /* 4. CONTACT */
+    #contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .les_sociaux {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    fieldset {
+        width: 90%; /* Formulaire prend toute la largeur */
+    }
+    
+    /* Ajustement des images projets */
+    .liens_projets a img {
+        width: 80vw; /* 80% de la largeur de l'écran */
+        max-width: 300px;
+    }
+}
+
+/* --- TRÈS PETITS ÉCRANS (En dessous de 480px) --- */
+@media screen and (max-width: 480px) {
+    .mon_nom {
+        font-size: 2rem;
+    }
+    
+    .presentation p {
+        font-size: 1.1rem;
+    }
+    
+    /* On s'assure que rien ne dépasse */
+    .corp {
+        overflow-x: hidden;
+    }
 }
