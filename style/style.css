@@ -1,0 +1,378 @@
+:root{
+   --couleur-noire: rgb(0, 0, 0);
+    --couleur-sombre: rgb(41, 39, 39);
+   --couleur-claire:rgb(234, 228, 228);
+   --couleur-blanche:rgb(255, 255, 255);
+   --couleur-vide:transparent;
+   --gros-titres: 3rem;
+   --gros-titres2: 2.3rem;
+   --neon: rgb(220, 223, 223); 
+   
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--couleur-noire)
+   }
+
+   
+#snow-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    pointer-events: none;
+    z-index: 99999; 
+}
+.snowflake {
+    position: absolute;
+    color: #fff; 
+    font-size: 15px; 
+    line-height: 1; 
+    opacity: 0.8; /* Légèrement transparent */
+    
+    /* Applique l'animation 'fall' et 'sway' */
+    animation: 
+        fall 10s linear infinite, /* Animation de chute */
+        sway 3s ease-in-out infinite alternate; /* Animation de balancement */
+}
+
+/* ------------------------------------------------------------------- */
+/* 3. DÉFINITION DES ANIMATIONS (pour la chute et le balancement) */
+/* ------------------------------------------------------------------- */
+/* Animation 'fall' : Déplace le flocon du haut vers le bas */
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh); /* Commence légèrement au-dessus */
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(192vh); /* Finit en bas de la vue */
+        opacity: 0;
+    }
+}
+
+/* Animation 'sway' : Déplace légèrement le flocon de gauche à droite */
+@keyframes sway {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(50px); /* Balancement de 50 pixels */
+    }
+}
+
+.corp{
+    width: 100%;
+    height: 100%;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 0.4rem;
+    margin-bottom: 5rem;
+   
+}
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;  
+    padding: 0.7rem;
+      border-radius: 22px;
+       -webkit-backdrop-filter: blur(7px) brightness(1.1);
+  backdrop-filter: blur(5px) brightness(1.1);
+  background-color: rgba(255, 255, 255, 0.2); 
+  position: fixed;
+z-index: 9999;
+}
+
+header nav a{
+    color: var(--couleur-claire);
+    text-decoration: none;
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+}
+header nav a:hover{
+    filter: drop-shadow(0px 31px 43px #f7f7f7);
+    text-shadow:
+      0 0 2px rgba(100, 33, 255, 0.9),
+      0 0 6px var(--neon),
+      0 0 18px var(--neon),
+      0 0 30px rgba(241, 245, 245, 0.12);
+      transition: 0.7s;
+      cursor: pointer;
+    /* légère mise en relief */
+    --d: 15; /* profondeur */
+  text-shadow:
+    calc(1px * 1) calc(1px * 1) 0 #000,
+    calc(1px * 2) calc(1px * 2) 0 #000,
+    calc(1px * 3) calc(1px * 3) 0 #000,
+    calc(1px * 4) calc(1px * 4) 0 #000,
+    calc(1px * 5) calc(1px * 5) 0 #000,
+    calc(1px * 6) calc(1px * 6) 0 #000;
+
+}
+#Accueil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.profil img{
+    width: 28rem;
+    
+}
+.profil img:hover{
+    filter: drop-shadow(1px 1px 29px rgb(201, 196, 196));
+    transition: 0.7s;
+}
+.presentation{
+    color: var(--couleur-claire);
+    width: 42rem;
+}
+.presentation p{
+    font-size: 1.6rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    filter: drop-shadow(1px 1px 29px rgb(208, 206, 206));
+}
+
+.mon_nom{
+    font-size: 4rem;
+    color: #fcfbfd;
+    text-shadow: 0 0 4px #fff, 0 0 8px #faffff, 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: flicker 3.5s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity:1; filter: drop-shadow(0 0 16px rgba(245, 248, 248, 0.8)); }
+    20% { opacity: .35; text-shadow: none; filter:none; }
+    24% { opacity: .6; text-shadow: none; filter: none; }
+    55% { opacity: .4; text-shadow: none; filter: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+     .mon_nom { animation: none; }
+  }
+  /*-------------------------vide-----------------------------------*/
+  .espacevide {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5rem;
+    margin-top: -0.8rem;
+    
+  }
+  .espacevide div {
+    background: #dce4e6;
+background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 134, 1) 26%, rgba(0, 0, 0, 1) 65%);
+    width: 90%;
+    height: 2rem;
+    border-radius: 60%;
+  }
+/*---------------------------------------------------cv-------------------------------------*/
+#cv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.1rem;
+}
+.contenu_cv{
+    -webkit-backdrop-filter: blur(15px) brightness(1.1);
+  backdrop-filter: blur(35px) brightness(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--couleur-vide);
+   border-bottom-left-radius: 8%;
+    border-top-right-radius: 58%;
+  width: 80%;
+  color: var(--couleur-claire);
+  padding: 1rem;
+}
+.contenu_cv h4{
+    font-weight: 900;
+}
+.cv_complet button{
+    border-radius: 0 20px;  
+     font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0.1rem 1.3rem;
+    background-color: #fffeffc5;
+}
+.cv_complet button:hover{
+      background-color: transparent;
+    box-shadow:10 5px rgb(255, 255, 255) #7812cc;
+      color: whitesmoke;
+      text-shadow:  0 0 0.5rem rgb(255, 255, 255),
+    0 0 0.7rem rgb(217, 213, 213),
+    0 0 0.9rem rgb(255, 252, 252),
+    0 0 1.1rem rgb(98, 7, 141),
+    0 0 1.3rem rgb(255, 252, 252),
+    0 0 1.5rem rgb(255, 247, 247),
+    0 0 1.7rem rgb(165, 59, 235);
+    transition: all 0.8s ease;
+}
+/*-------------------------------------------------*/
+.ligne_blanche{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ligne_blanche hr{
+   color: var(--couleur-blanche);
+   width: 80%;
+}
+/*------------------------------ms projets---------------------------------------*/
+#projets{
+    width: 100%;
+    height: auto;
+}
+.contenu_projet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+}
+.titre_projet strong{
+    color: var(--couleur-claire);
+    font-size: var(--gros-titres2);
+      font-family: "Rubik Wet Paint", system-ui;
+  font-style: normal;
+  filter: drop-shadow(1px 1px 29px rgb(173, 172, 172));
+  --d: 15; /* profondeur */
+  text-shadow:
+    calc(1px * 1) calc(1px * 1) 0 #000,
+    calc(1px * 2) calc(1px * 2) 0 #000,
+    calc(1px * 3) calc(1px * 3) 0 #000,
+    calc(1px * 4) calc(1px * 4) 0 #000,
+    calc(1px * 5) calc(1px * 5) 0 #000,
+    calc(1px * 6) calc(1px * 6) 0 #000;
+}
+.liens_projets a img{
+    width: 20rem;
+      display: block;
+  height: auto;
+  border-radius: 6px;
+  /* contour clair en haut/gauche + ombre en bas/droite = effet biseau */
+  box-shadow:
+    inset 2px 2px 6px rgba(255,255,255,0.35),   /* lumière interne */
+    inset -2px -2px 6px rgba(0,0,0,0.25),      /* ombre interne */
+    6px 8px 18px rgba(0,0,0,0.35);             /* ombre portée pour profondeur */
+  background-color: #fff;
+}
+/*------------------------------------------------------------------------*/
+.ligne_blanche2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ligne_blanche2 hr{
+   color: var(--couleur-blanche);
+   width: 44%;
+}
+
+/*--------------------------------contact-----------------------------------*/
+
+#contact{
+    width:100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+.sociaux{
+    display: flex;
+    flex-direction: column;
+}
+.sociaux p{
+    color: var(--couleur-claire);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.les_sociaux img{
+    width: 15rem;
+}
+
+.liens_sociaux img{
+    width: 2.5rem;
+}
+.lien_reseaux{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+fieldset{
+    border-radius: 0 22px;
+      -webkit-backdrop-filter: blur(15px) brightness(1.1);
+  backdrop-filter: blur(35px) brightness(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 33rem;
+  height: auto;
+}
+fieldset form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 5px;
+}
+fieldset form label{
+    color: var(--couleur-claire);
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+fieldset form input{
+    background-color: var(--couleur-noire);
+    color: var(--couleur-claire);
+    width: auto;
+    height: 1.7rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+fieldset form #message{
+    background-color: var(--couleur-noire);
+    color: var(--couleur-claire);
+    height: 9rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+fieldset form button{
+     border-radius: 0 20px;  
+     font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0.1rem 1.3rem;
+    background-color: #fffeffc5;
+}
+fieldset form button:hover{
+      background-color: transparent;
+    box-shadow:10 5px rgb(255, 255, 255) #7812cc;
+      color: whitesmoke;
+      text-shadow:  0 0 0.5rem rgb(255, 255, 255),
+    0 0 0.7rem rgb(217, 213, 213),
+    0 0 0.9rem rgb(255, 252, 252),
+    0 0 1.1rem rgb(98, 7, 141),
+    0 0 1.3rem rgb(255, 252, 252),
+    0 0 1.5rem rgb(255, 247, 247),
+    0 0 1.7rem rgb(165, 59, 235);
+    transition: all 0.8s ease;
+}
+/*-----------footer------------------*/
+footer{
+    color: var(--couleur-claire);
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
