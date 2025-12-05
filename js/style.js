@@ -70,3 +70,5 @@ topBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+/*----------------------------img animation-------------*/
+

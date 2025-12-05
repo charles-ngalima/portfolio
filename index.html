@@ -20,8 +20,8 @@
         <div class="corp">
             <header>
                 <nav>
-                <a href="#Accueil">Accueil</a>
-                <a href="#cv">Cv</a>
+                <a href="#accueil" >Accueil</a>
+                <a href="#cv" >Cv</a>
                 <a href="#projets"  >Projets</a>
                 <a href="#contact">Contact</a>
 
@@ -156,18 +156,38 @@
                     </article>
 
                 </section>
-                <button id="topBtn">⬆ Haut</button>
-
+        
        
 
             </main>
 
+                <footer class="footer-water">
+                    <div class="footer-content">
+                        <p>Email: Ngalimacharles@gmail.com</p>
+                        <p>2025 My Portfolio. All rights reserved.</p>
+                    </div>
 
-            <footer>
-                <p>Email: Ngalimacharles@gmail.com</p>
-                <p>2025 My Portfolio. All rights reserved.</p>
+                    <!-- Reflet -->
+                    <div class="footer-reflect-wrap" aria-hidden="true">
+                        <div class="footer-content footer-reflect">
+                            <p>Email: Ngalimacharles@gmail.com</p>
+                            <p>2025 My Portfolio. All rights reserved.</p>
+                        </div>
+                    </div>
 
-            </footer>
+                     <!-- Filtre eau (SVG) -->
+                    <svg width="0" height="0" style="position:absolute">
+                        <filter id="water-filter">
+                            <feTurbulence id="turb" type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="3"result="turbulence"/>
+            
+                            <!-- Animation des vagues -->
+                            <animate xlink:href="#turb" attributeName="baseFrequency"values="0.012 0.02; 0.018 0.03; 0.010 0.015; 0.012 0.02"dur="6s"repeatCount="indefinite"/>
+
+                            <feDisplacementMap in="SourceGraphic" in2="turbulence"scale="12" xChannelSelector="R" yChannelSelector="G"/>
+                        </filter>
+                    </svg>
+                </footer>
+
             
         </div>
         
