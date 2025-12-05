@@ -120,7 +120,7 @@ header nav a:hover{
     calc(1px * 4) calc(1px * 4) 0 #000,
     calc(1px * 5) calc(1px * 5) 0 #000,
     calc(1px * 6) calc(1px * 6) 0 #000;
-
+    transform: scale(1.2);
 }
 #Accueil{
     display: flex;
@@ -136,6 +136,7 @@ header nav a:hover{
 .profil img:hover{
     filter: drop-shadow(1px 1px 29px rgb(201, 196, 196));
     transition: 0.7s;
+    
 }
 .presentation{
     color: var(--couleur-claire);
@@ -305,7 +306,7 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     transition: 0.6s;
 }
 .liens_sociaux img:hover{
-    box-shadow: 1px 2px 9px var(--couleur-blanche);
+    transform: scale(1.2);
 }
 .lien_reseaux{
     display: flex;
@@ -364,6 +365,7 @@ fieldset form button:hover{
     0 0 1.5rem rgb(255, 247, 247),
     0 0 1.7rem rgb(165, 59, 235);
     transition: all 0.8s ease;
+    
 }
 /*-----bouton*/
 /* Style du bouton */
