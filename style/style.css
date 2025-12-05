@@ -419,6 +419,8 @@ fieldset form{
     flex-direction: column;
     justify-content: space-around;
     gap: 5px;
+    width: auto;
+    height: auto;
 }
 fieldset form label{
     color: var(--couleur-claire);
@@ -616,10 +618,22 @@ footer.footer-water {
     .profil img {
         width: 20rem; /* Image un peu plus petite */
     }
+    .espacevide{
+        display: none;
+    }
+    .contenu_cv{
+   border-bottom-left-radius: 25%;
+    border-top-right-radius: 35%;
+
+}
     /* On ajuste le slider 3D pour qu'il ne soit pas trop large */
     .slider-3d-container {
         transform: scale(0.9); 
     }
+    fieldset{
+  width: 22rem;
+  height: auto;
+}
 }
 
 /* --- MOBILES (En dessous de 768px) --- */
@@ -673,13 +687,6 @@ footer.footer-water {
     }
     
 
-    /* Le Slider 3D sur mobile */
-    .slider-3d-container {
-        width: 100%;
-        perspective: 600px; /* Moins de perspective pour éviter les bugs visuels */
-        transform: scale(0.8); /* On le réduit pour qu'il rentre */
-    }
-
     /* 4. CONTACT */
     #contact {
         flex-direction: column;
@@ -718,4 +725,8 @@ footer.footer-water {
     .corp {
         overflow-x: hidden;
     }
+        fieldset{
+  width: 19rem;
+  height: auto;
+}
 }
