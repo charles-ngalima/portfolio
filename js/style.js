@@ -49,3 +49,24 @@ document.addEventListener('DOMContentLoaded', () => {
         createSnowflake();
     }
 });
+
+/*-------------bouton remonter-------------*/
+
+const topBtn = document.getElementById("topBtn");
+
+// Affiche le bouton quand on scrolle
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});
+
+// Remonte en haut avec un scroll fluide
+topBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});

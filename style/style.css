@@ -9,10 +9,14 @@
    --neon: rgb(220, 223, 223); 
    
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--couleur-noire)
+    background-color: var(--couleur-noire);
    }
 
    
@@ -260,15 +264,6 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
 }
 .liens_projets a img{
     width: 20rem;
-      display: block;
-  height: auto;
-  border-radius: 6px;
-  /* contour clair en haut/gauche + ombre en bas/droite = effet biseau */
-  box-shadow:
-    inset 2px 2px 6px rgba(255,255,255,0.35),   /* lumière interne */
-    inset -2px -2px 6px rgba(0,0,0,0.25),      /* ombre interne */
-    6px 8px 18px rgba(0,0,0,0.35);             /* ombre portée pour profondeur */
-  background-color: #fff;
 }
 /*------------------------------------------------------------------------*/
 .ligne_blanche2{
@@ -305,6 +300,12 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
 
 .liens_sociaux img{
     width: 2.5rem;
+    border-radius: 15px;
+    padding: 0.3rem;
+    transition: 0.6s;
+}
+.liens_sociaux img:hover{
+    box-shadow: 1px 2px 9px var(--couleur-blanche);
 }
 .lien_reseaux{
     display: flex;
@@ -364,6 +365,28 @@ fieldset form button:hover{
     0 0 1.7rem rgb(165, 59, 235);
     transition: all 0.8s ease;
 }
+/*-----bouton*/
+/* Style du bouton */
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  display: none; /* caché au début */
+  transition: 0.3s;
+}
+
+/* Effet au survol */
+#topBtn:hover {
+  background: #555;
+}
+
 /*-----------footer------------------*/
 footer{
     color: var(--couleur-claire);
