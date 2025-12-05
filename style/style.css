@@ -224,14 +224,101 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
   background-color: rgba(255, 255, 255, 0.2);
   border: 2px solid var(--couleur-vide);
    border-bottom-left-radius: 8%;
-    border-top-right-radius: 58%;
+    border-top-right-radius: 55%;
   width: 80%;
   color: var(--couleur-claire);
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-.contenu_cv h4{
+.contenu_cv1 h4{
     font-weight: 900;
 }
+
+/*------*/
+/* Conteneur principal qui donne la profondeur (Perspective) */
+.slider-3d-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 21rem; /* Hauteur de la zone */
+    margin: 30px 0;
+    overflow: hidden;
+    perspective: 900px; /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
+    border-radius: 22px solid var(--couleur-vide);
+}
+
+/* L'axe qui va tourner */
+.slider-axis {
+    position: relative;
+    width: 110px; /* Largeur d'une carte */
+    height: 195px; /* Hauteur d'une carte */
+    transform-style: preserve-3d; /* Indispensable pour la 3D */
+    animation: autoRun 20s linear infinite; /* Ça tourne tout seul */
+}
+
+/* Pause l'animation quand on passe la souris dessus */
+.slider-axis:hover {
+    animation-play-state: paused;
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+/* Les cartes individuelles */
+.slider-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Effet verre (Glassmorphism) pour coller à ton site */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 
+       CALCUL MATHÉMATIQUE IMPORTANT :
+       On a 7 éléments. 360 degrés / 7 = ~51.43 degrés par élément.
+       On multiplie l'index (--i) par 51.43deg.
+       Le translateZ(250px) est le rayon du cercle. Augmente ce chiffre si les cartes se chevauchent trop.
+    */
+    transform: rotateY(calc((var(--i) - 1) * (360 / 7 * 1deg))) translateZ(280px);
+    
+    /* Reflet réaliste en dessous (marche sur Chrome/Safari/Edge) */
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0,0,0,0.4));
+    
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* Effet au survol d'une carte spécifique */
+.slider-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px var(--neon); /* Utilise ta variable néon existante */
+    transform: rotateY(calc((var(--i) - 1) * (360 / 7 * 1deg))) translateZ(300px) scale(1.1); /* La carte s'avance un peu */
+}
+
+.slider-item img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+/*-------*/
 .cv_complet button{
     border-radius: 0 20px;  
      font-family: "Kaushan Script", cursive;
@@ -291,7 +378,7 @@ background: linear-gradient(152deg, rgba(220, 228, 230, 1) 0%, rgba(135, 134, 13
     calc(1px * 6) calc(1px * 6) 0 #000;
 }
 .liens_projets a img{
-    width: 20rem;
+    width: 5rem;
 }
 /*------------------------------------------------------------------------*/
 .ligne_blanche2{
