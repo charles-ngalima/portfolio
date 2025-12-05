@@ -140,7 +140,8 @@ z-index: 9999;
 display: none;
 }
 .nav_mobile a img{
-        width: 2rem;
+        width: 3rem;
+        padding: 0.20rem;
 }
 .nav_mobile a img:hover{
     transform: scale(1.2);
