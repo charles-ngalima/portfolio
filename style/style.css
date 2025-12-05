@@ -172,6 +172,16 @@ display: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     filter: drop-shadow(1px 1px 29px rgb(208, 206, 206));
 }
+.langages {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.langages img{
+    width: 2.7rem;
+}
 
 .mon_nom{
     font-size: 4rem;
@@ -673,6 +683,9 @@ footer.footer-water {
     }
     .presentation h1, .presentation h2 {
         font-size: 1.5rem;
+    }
+    .langages{
+        display: flex;
     }
     
     .mon_nom {
